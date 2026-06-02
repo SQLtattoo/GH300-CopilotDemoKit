@@ -74,3 +74,7 @@ def validate_date_string(date_str: str) -> Tuple[bool, str]:
     if not date_str or not isinstance(date_str, str):
         return False, "Date is required"
     # Copilot should complete the validation logic
+    pattern = r"^\d{4}-\d{2}-\d{2}$"
+    if not re.match(pattern, date_str):
+        return False, "Date must be in YYYY-MM-DD format"
+    return True, ""

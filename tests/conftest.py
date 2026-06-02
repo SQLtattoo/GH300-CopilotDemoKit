@@ -12,6 +12,7 @@ def sample_employee():
         id=1,
         first_name="Alice",
         last_name="Johnson",
+        email="alice@example.com",
         department="Engineering",
         salary=95000.0,
         hire_date=date(2021, 3, 15),
@@ -23,11 +24,11 @@ def sample_employee():
 @pytest.fixture
 def sample_employees():
     return [
-        Employee(id=1, first_name="Alice", last_name="Johnson", department="Engineering", salary=95000.0, hire_date=date(2021, 3, 15), is_active=True),
-        Employee(id=2, first_name="Bob", last_name="Smith", department="Marketing", salary=72000.0, hire_date=date(2020, 7, 1), is_active=True),
-        Employee(id=3, first_name="Carol", last_name="Davis", department="Engineering", salary=110000.0, hire_date=date(2019, 1, 10), is_active=True),
-        Employee(id=4, first_name="David", last_name="Wilson", department="Sales", salary=65000.0, hire_date=date(2022, 11, 20), is_active=False),
-        Employee(id=5, first_name="Eve", last_name="Martinez", department="Engineering", salary=88000.0, hire_date=date(2023, 5, 8), is_active=True),
+        Employee(id=1, first_name="Alice", last_name="Johnson", email="alice@example.com", department="Engineering", salary=95000.0, hire_date=date(2021, 3, 15), is_active=True),
+        Employee(id=2, first_name="Bob", last_name="Smith", email="bob@example.com", department="Marketing", salary=72000.0, hire_date=date(2020, 7, 1), is_active=True),
+        Employee(id=3, first_name="Carol", last_name="Davis", email="carol@example.com", department="Engineering", salary=110000.0, hire_date=date(2019, 1, 10), is_active=True),
+        Employee(id=4, first_name="David", last_name="Wilson", email="david@example.com", department="Sales", salary=65000.0, hire_date=date(2022, 11, 20), is_active=False),
+        Employee(id=5, first_name="Eve", last_name="Martinez", email="eve@example.com", department="Engineering", salary=88000.0, hire_date=date(2023, 5, 8), is_active=True),
     ]
 
 
@@ -44,8 +45,10 @@ def sample_departments():
 @pytest.fixture
 def employee_data_dict():
     return {
+        "id": 6,
         "first_name": "Frank",
         "last_name": "Garcia",
+        "email": "frank@example.com",
         "department": "HR",
         "salary": 68000.0,
         "hire_date": "2023-09-01",

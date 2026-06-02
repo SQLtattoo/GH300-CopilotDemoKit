@@ -81,16 +81,7 @@ def save_employees(employees: List[Employee], filepath: str) -> None:
 
 # --- Performance Optimization Demo ---
 def get_active_employee_names(employees: List[Employee]) -> List[str]:
-    active_employees = []
-    for emp in employees:
-        if emp.is_active:
-            active_employees.append(emp)
-
-    names = []
-    for emp in active_employees:
-        names.append(f"{emp.first_name} {emp.last_name}")
-
-    return names
+    return [f"{emp.first_name} {emp.last_name}" for emp in employees if emp.is_active]
 
 
 def find_employee_by_id(employees: List[Employee], emp_id: int) -> Optional[Employee]:

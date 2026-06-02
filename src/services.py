@@ -11,7 +11,28 @@ logger = get_logger(__name__)
 
 # --- Chat - Explain Demo ---
 def generate_department_report(employees: List[Employee], departments: List[Department]) -> dict:
-    return {d.name: {"active": len([e for e in employees if e.department == d.name and e.is_active]), "avg_salary": (sum(e.salary for e in employees if e.department == d.name and e.is_active) / len([e for e in employees if e.department == d.name and e.is_active])) if len([e for e in employees if e.department == d.name and e.is_active]) > 0 else 0, "tenure": sorted([(e.first_name + " " + e.last_name, (date.today() - e.hire_date).days // 365) for e in employees if e.department == d.name and e.is_active], key=lambda x: x[1], reverse=True), "budget_usage": sum(e.salary for e in employees if e.department == d.name and e.is_active) / d.budget * 100 if d.budget > 0 else 0} for d in departments}
+    report = {}
+    for dept in departments:
+        active_employees = [e for e in employees if e.department == dept.name and e.is_active]
+        total_salary = sum(e.salary for e in active_employees)
+        count = len(active_employees)
+
+        avg_salary = total_salary / count if count > 0 else 0
+        budget_usage = (total_salary / dept.budget * 100) if dept.budget > 0 else 0
+        tenure = sorted(
+            [(f"{e.first_name} {e.last_name}", (date.today() - e.hire_date).days // 365)
+             for e in active_employees],
+            key=lambda x: x[1],
+            reverse=True,
+        )
+
+        report[dept.name] = {
+            "active": count,
+            "avg_salary": avg_salary,
+            "tenure": tenure,
+            "budget_usage": budget_usage,
+        }
+    return report
 
 
 # --- Performance Optimization Demo ---
@@ -101,5 +122,17 @@ def get_employees_by_salary_range(employees: List[Employee], min_salary, max_sal
 
 # --- Code Completion Demo ---
 def calculate_department_stats(employees: List[Employee], department: str) -> dict:
+    """Calculate salary statistics for a given department.
+
+    Args:
+        employees: List of all employees.
+        department: Name of the department to calculate stats for.
+
+    Returns:
+        Dictionary with total_salary, avg_salary, and employee_count
+        for active employees in the specified department.
+    """
     dept_employees = [e for e in employees if e.department == department and e.is_active]
     total_salary = sum(e.salary for e in dept_employees)
+    avg_salary = total_salary / len(dept_employees) if dept_employees else 0
+    return {"total_salary": total_salary, "avg_salary": avg_salary, "employee_count": len(dept_employees)}
