@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "first_name": "Alice",
+    "last_name": "Johnson",
+    "department": "Engineering",
+    "salary": 95000.00,
+    "hire_date": "2019-03-15",
+    "is_active": true,
+    "manager_id": null
+  },
+  {
+    "id": 2,
+    "first_name": "Bob",
+    "last_name": "Smith",
+    "department": "Engineering",
+    "salary": 88000.00,
+    "hire_date": "2020-07-01",
+    "is_active": true,
+    "manager_id": 1
+  },
+  {
+    "id": 3,
+    "first_name": "Carol",
+    "last_name": "Williams",
+    "department": "Marketing",
+    "salary": 72000.00,
+    "hire_date": "2021-01-10",
+    "is_active": true,
+    "manager_id": null
+  },
+  {
+    "id": 4,
+    "first_name": "David",
+    "last_name": "Brown",
+    "department": "Sales",
+    "salary": 65000.00,
+    "hire_date": "2022-06-20",
+    "is_active": true,
+    "manager_id": null
+  },
+  {
+    "id": 5,
+    "first_name": "Eve",
+    "last_name": "Davis",
+    "department": "HR",
+    "salary": 78000.00,
+    "hire_date": "2018-11-05",
+    "is_active": true,
+    "manager_id": null
+  },
+  {
+    "id": 6,
+    "first_name": "Frank",
+    "last_name": "Garcia",
+    "department": "Engineering",
+    "salary": 102000.00,
+    "hire_date": "2017-04-22",
+    "is_active": false,
+    "manager_id": 1
+  },
+  {
+    "id": 7,
+    "first_name": "Grace",
+    "last_name": "Martinez",
+    "department": "Finance",
+    "salary": 91000.00,
+    "hire_date": "2020-09-14",
+    "is_active": true,
+    "manager_id": null
+  },
+  {
+    "id": 8,
+    "first_name": "Henry",
+    "last_name": "Johnson",
+    "department": "Engineering",
+    "salary": 95000.00,
+    "hire_date": "2021-03-15",
+    "is_active": true,
+    "manager_id": 1
+  }
+]
